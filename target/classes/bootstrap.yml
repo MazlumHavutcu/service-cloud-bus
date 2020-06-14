@@ -1,0 +1,27 @@
+spring:
+  rabbitmq:
+    host: ovrhrmbatchdev
+    port: 5672
+    username: guest
+    password: guest
+
+  cloud:
+    stream:
+      bindings:
+        springCloudBusInput:
+          destination: cloud-queue
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:5555/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, httptrace, shutdown, logger
+server:
+  port: 4100
